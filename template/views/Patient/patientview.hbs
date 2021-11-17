@@ -410,7 +410,7 @@
 
                 document.getElementById("food").value = "";
                 var e = "<hr/>";
-
+                 totalCalorie = 0;
                 for (var y = 0; y < array.length; y++) {
                     var curr = array[y];
                     // totalCalorie += Number(curr.slice(curr.length - 6, curr.length - 3));
@@ -422,7 +422,7 @@
                 document.getElementById("total").innerHTML = "Total Calorie : " + totalCalorie + " cal";
                 console.log(totalCalorie);
             }
-            totalCalorie = 0;
+           
         }
         function deleteFood() {
             array = Array();
