@@ -9,8 +9,8 @@
     <script
       src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
     ></script>
-    <link rel="stylesheet" href="CSS/style1.css" />
-    <link rel="stylesheet" href="CSS/doctor.css" />
+    <link rel="stylesheet" href="../CSS/style1.css" />
+    <link rel="stylesheet" href="../CSS/doctor.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Karla:400,700&amp;display=swap"
       rel="stylesheet"
@@ -30,18 +30,19 @@
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
     />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="../CSS/footer.css">
   </head>
   <body>
     <nav>
-      <label class="logo">ConfidaX</label>
+      <label class="logo">Aarugyan</label>
       <input type="checkbox" id="check" />
       <label for="check" class="hamberger-btn">
         <i class="fas fa-bars"></i>
       </label>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">Pricing</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact us</a></li>
       </ul>
@@ -49,7 +50,7 @@
     <div class="intro">
       <div class="left">
         <div class="wish">
-          Good Morning, Doctor Dhri !
+         <span id="Greet">Good Morning</span>, Dr <span>{{checkname.username}}</span> !
         </div>
         <div class="doctoroptions">
           <div class="newpatient">
@@ -61,11 +62,11 @@
               loop
               autoplay
             ></lottie-player>
-          <a href=" "> <button class="add">Check new Patient</button></a> 
+          <a href="/doctor/pescription"> <button class="add">Check new Patient</button></a> 
           </div>
           <div class="prevpatient">
             <img class="historyfiles"
-            src="image/history files.svg"
+            src="../image/history files.svg"
             
            />
             <button class="historybutton">Check History</button>
@@ -83,7 +84,54 @@
           autoplay
         ></lottie-player>
       </div>
-
-    </div>
+      </div>
+    <div class="footer-dark">
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-md-3 item">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">Pescribtion</a></li>
+              <li><a href="#">Development</a></li>
+              <li><a href="#">Hosting</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-md-3 item">
+            <h3>About</h3>
+            <ul>
+              <li><a href="#">Company</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 item text">
+            <h3>Red Black Tree</h3>
+            <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula
+              rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum
+              vel in justo.</p>
+          </div>
+          <div class="col item social">
+            <a href="https://www.facebook.com/" target="_blank"><i class="icon ion-social-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="icon ion-social-instagram"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="icon ion-social-twitter"></i></a>
+          </div>
+        </div>
+        <p class="copyright">Red Black Tree © 2021</p>
+      </div>
+    </footer>
+  </div>
+    <script>
+        var myDate = new Date();
+        var hrs = myDate.getHours();
+        // console.log(hrs);
+        var greet;
+        var meal_name;
+        if (hrs < 12) { greet = 'Good Morning'; meal_name = 'Breakfast' }
+        else if (hrs >= 12 && hrs <= 17) { greet = 'Good Afternoon'; meal_name = 'Lunch'; }
+        else if (hrs >= 17 && hrs <= 24) { greet = 'Good Evening'; meal_name = "Dinner"; }
+        document.getElementById('Greet').innerHTML =
+            '<span style="font-weight: medium">' + greet + '</span>';
+    </script>
   </body>
 </html>

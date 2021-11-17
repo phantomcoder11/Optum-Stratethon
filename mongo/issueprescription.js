@@ -10,15 +10,15 @@ const prescriptionschema = new mongoose.Schema({
   address:{
     type: String
 },
-mobile : {
-    type: String
-},
   name : {
       type: String
   },
   age: {
       type: String
   },
+  mobile : {
+    type: String
+},
   gender : {
       type: String
   },
