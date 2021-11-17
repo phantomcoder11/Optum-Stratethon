@@ -1,8 +1,7 @@
 nav {
     background: linear-gradient(
       93deg,
-      rgb(97, 99, 100) 16%,
-      rgb(2, 15, 49) 55%
+      rgb(97, 99, 100) 16%,    rgb(2, 15, 49) 55%
     );
     font-family: 'Lucida Bright';
     height: 90px;
