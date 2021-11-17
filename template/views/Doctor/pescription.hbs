@@ -50,11 +50,9 @@
                   <div class="credentials">
                     <h3>{{checkmail.username}}</h3>
                     <h4><input type="text" name="doctor" id="doctor" class="doctor_num" placeholder="Doctor Name" value="{{checkmail.username}}"></h4>
-                    <div class="wrap"><input type="text" name="chamber" id="chamber" placeholder="Chamber name">
-                    <label for="">Chamber</label>
+                    <div class="wrap"><input type="text" name="chamber" id="chamber" placeholder="Chamber">
                     </div>
                     <div class="wrap"><input type="text" name="address" id="address" placeholder="Address">
-                    <label for="">Address</label>
                     </div>
                     <br />
                   </div>
@@ -65,7 +63,7 @@
                   <input type="text" id="name" name="name" placeholder="Name"/>
                   <input id="age" type="number" name="age" placeholder="Age"/>
                   
-                  <input  type="text" name="mobile" placeholder="Ph. No"/>
+                  <input  type="text" id="mobile" name="mobile" placeholder="Ph. No"/>
                   <input type="search" id="gender" list="data" name="gender"placeholder="Gender" />
                   <datalist id="data">
                     <option value="Male">
@@ -204,14 +202,14 @@
     }
    
    async function issueForm(e){
-      e.preventDefault();
+      //e.preventDefault();
       console.log(medicines)
       const doctor = document.querySelector('#doctor').value;
       const chamber = document.querySelector('#chamber').value;
       const address = document.querySelector('#address').value;
-      const mobile = document.querySelector('#mobile').value;
       const name = document.querySelector("#name").value;
       const age = document.querySelector("#age").value;
+      const mobile = document.querySelector('#mobile').value;
       const gender = document.querySelector("#gender").value;
       const symptoms = document.querySelector("#symptoms").value;
       const advice = document.querySelector("#advice").value;
@@ -221,16 +219,16 @@
   doctor: doctor,
   chamber: chamber,
   address: address,
-  mobile: mobile,
   name : name,
   age: age,
+  mobile: mobile,
   gender : gender,
   symptoms: symptoms,
   advice: advice,
   tests: tests,
   medicine: medicines
   }
-      const response = await axios.post('http://localhost:5000/doctor/pescription',data);
+      const response = await axios.post('/doctor/pescription',data);
       console.log(response.data)
     }
 

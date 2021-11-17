@@ -130,13 +130,13 @@
             <div class="medi">
                 <div class="medi_left">
                     <div class="med_head">Your Medicines!</div>
-                </div>
-                <div class="medi_right">
-                    <div class="finish_tag">
+                     <div class="finish_tag">
                         <lottie-player src="https://assets10.lottiefiles.com/private_files/lf30_yo2zavgg.json"
                             background="transparent" speed="1" style="width: 35%; height: 35%; object-fit:contain;" loop
                             autoplay></lottie-player>
                     </div>
+                </div>
+                <div class="medi_right">
                     <input type="hidden" id="check_data" value="{{med_res.name}}">
                     {{#each med_res.medicine}}
                     <div class="med_seg">
@@ -388,8 +388,8 @@
             })
             if (count === 0) {
                 console.log("finished")
-                document.querySelector(".medi_head").innerText = "Finished Up All";
-                document.querySelector(".finish_tag").style.display = "block";
+                //document.querySelector(".medi_head").innerText = "Finished Up All";
+                document.querySelector(".finish_tag").classList.add("finish_tag_sec");
                 //document.querySelector(".medi_head").innerText = "Finished Up All";
             }
 
@@ -449,11 +449,19 @@
         // totalCalorie=Number(totalCalorie);
         // console.log(Number(totalCalorie))
         var ok;
+<<<<<<< HEAD
+        function seeRemarks(){
+       // alert(totalCalorie); --}}
+            if(meal_name==="Breakfast"){
+                if(totalCalorie>=300 && totalCalorie<=400){
+                     ok="You have had  a healthy breakfast";
+=======
         function seeRemarks() {
             // alert(totalCalorie);
             if (meal_name === "Breakfast") {
                 if (totalCalorie >= 300 && totalCalorie <= 400) {
                     ok = "You have had  a healthy breakfast";
+>>>>>>> e0007525666d6218b492ea189d43c819ad50f151
                 }
                 else if (totalCalorie < 300 && totalCalorie >= 250) {
                     ok = "Oh! slightly less than recommended";

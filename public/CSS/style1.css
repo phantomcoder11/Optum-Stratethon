@@ -22,10 +22,9 @@ body {
 
 nav {
   background: linear-gradient(
-    93deg,
-    rgba(68, 179, 226, 1) 16%,
-    rgba(94, 129, 207, 1) 55%
-  );
+      93deg,
+      rgb(97, 99, 100) 16%,    rgb(2, 15, 49) 55%
+    );
   height: 60px;
   max-width: 100%;
 }

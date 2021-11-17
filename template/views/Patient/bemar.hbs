@@ -4,6 +4,11 @@
         <title></title>
         <link rel="stylesheet" href="../CSS/bemar.css" />
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+       <style>
+         h5{
+           margin-top: -10px;
+         }
+       </style>
     </head>
     <body>
         <div class="signupSection">
@@ -13,7 +18,7 @@
      <div>
          <h3><i class="icon-user-md"></i> <span style="color: black;">{{this.username}}</span></h3>
          <h5><i class="icon-envelope"></i> <span style="color: black;">{{this.email}}</span></h5>
-         <h5><i class="icon-phone"></i> <span style="color: black;">{{this.phone}}</span></h5>
+         <h5 class="last"><i class="icon-phone"></i> <span style="color: black;">{{this.phone}}</span></h5>
      </div>
      {{/each}}
   </div>

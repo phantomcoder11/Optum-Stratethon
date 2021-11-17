@@ -33,6 +33,9 @@ app.get('/',(req,res)=>{
 app.get('/test',(req,res)=>{
     res.render('Doctor/extra');
 });
+app.get('/doctor',(req,res)=>{
+    res.render('Doctor/doctor');
+});
 app.get('/login',(req,res)=>{
     res.render('main');
 });
@@ -47,11 +50,21 @@ app.get('/doctor/register',(req,res)=>{
 app.get('/doctor/logindoctor',(req,res)=>{
     res.render('Doctor/logindoctor');
 })
-app.get('/doctor',(req,res)=>{
+let d_email = "";
+app.get('/doctor/home',async (req,res)=>{
+    const {email} = req.query;
+    console.log(email)
+    const checkname = await Doctorreg.findOne({email : email})
+    console.log(checkname)
+    d_email = checkname.email;
+    console.log(d_email)
+    if(checkname){
+        return res.render('Doctor/doctor',{checkname});
+    }
     res.render('Doctor/doctor');
 });
 app.get('/doctor/pescription',async (req,res)=>{
-    const {email} = req.query;
+    const email = d_email;
     console.log(email)
     const checkmail = await Doctorreg.findOne({email : email})
     console.log(checkmail)
@@ -183,7 +196,7 @@ app.post('/doctor/logindoctor', async (req,res)=>{
     const checkpass = await bcrypt.compare(pass,checkemail.password);
     console.log(checkpass)
     if(checkpass){
-        res.status(201).redirect('/doctor/pescription?email=' + email);
+        res.status(201).redirect('/doctor/home?email=' + email);
     }
     else{
         res.status(404).redirect('/doctor/logindoctor')
@@ -251,9 +264,9 @@ app.post('/doctor/pescription', async (req,res)=>{
           doctor: req.body.doctor,
           chamber: req.body.chamber,
           address: req.body.address,
-          mobile: req.body.mobile,
           name: req.body.name,
           age: req.body.age,
+          mobile: req.body.mobile,
           gender: req.body.gender,
           symptoms: req.body.symptoms,
           advice: req.body.advice,
