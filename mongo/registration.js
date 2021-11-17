@@ -9,12 +9,12 @@ const medischema = new mongoose.Schema({
     email : {
         type: String,
         required: true,
-        unique: 'This field is unique.'
+        unique: true
     },
     phone :{
         type: String,
         required: 'This field is required.',
-        unique: 'This field is unique.'
+        unique: true
     },
     password : {
         type: String,

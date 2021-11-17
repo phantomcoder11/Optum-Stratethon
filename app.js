@@ -30,15 +30,15 @@ hbs.registerPartials(partial_path);
 app.get('/',(req,res)=>{
     res.render('home');
 });
-app.get('/test',(req,res)=>{
-    res.render('Doctor/extra');
-});
 app.get('/doctor',(req,res)=>{
     res.render('Doctor/doctor');
 });
 app.get('/login',(req,res)=>{
     res.render('main');
 });
+app.get('/404',(req,res)=>{
+    res.render("404")
+})
 app.get('/register',(req,res)=>{
     res.render('register',{
         viewTitle : 'Insert Patient'
@@ -98,18 +98,7 @@ app.get('/patient/profile',async (req,res)=>{
     res.render('Patient/profile');
     }
 })
-// app.get('/patient/bemar',(req,res)=>{
-//         Doctorreg.find((err,docs)=>{
-//             if(!err){
-//                 return res.render('Patient/bemar',{
-//                     bemar : docs
-//                 });
-//             }
-//             else{
-//                 res.send("error in retriving the doctors " + err);
-//             }
-//         })  
-// })
+
 app.get('/patient/patientprescrip', async (req,res)=>{
     const pres_res = await Prescriptionmodel.findOne({mobile : mobile});
     console.log(pres_res);
@@ -154,11 +143,11 @@ app.post('/register',async (req,res)=>{
             res.status(201).redirect('/login')
         }
         else{
-            res.send('password confirmation failed!')
+            res.status(201).render("404");
         }
     }
     catch(err){
-        res.status(404).json({err})
+        res.status(201).render("404");
     }
 })
 
@@ -183,7 +172,7 @@ app.post('/doctor/register', async(req,res)=>{
     }
     }
     catch(err){
-     res.status(404).json({err})
+     res.status(201).render("404")
     }
 })
 app.post('/doctor/logindoctor', async (req,res)=>{
@@ -199,11 +188,11 @@ app.post('/doctor/logindoctor', async (req,res)=>{
         res.status(201).redirect('/doctor/home?email=' + email);
     }
     else{
-        res.status(404).redirect('/doctor/logindoctor')
+        res.status(201).redirect('/doctor/logindoctor')
     }
     }
     catch(err){
-        res.status(404).json({err});
+        res.status(201).render(404);
     }
 })
 app.post('/login',async (req,res)=>{
@@ -221,7 +210,7 @@ app.post('/login',async (req,res)=>{
         res.send('Invalid login details!')
     }
     catch(err){
-        res.status(404).json({err})
+        res.status(201).render("404")
     }
 })
 app.post('/patient/profile', async (req,res)=>{
@@ -254,7 +243,7 @@ app.post('/patient/profile', async (req,res)=>{
      }
     //}
     catch(err){
-        res.status(404).json({err})
+        res.status(201).render("404")
     }
 })
 app.post('/doctor/pescription', async (req,res)=>{
@@ -279,10 +268,10 @@ app.post('/doctor/pescription', async (req,res)=>{
       res.status(201).json(result)
     }
     catch(err){
-      res.status(404).json({err})
+      res.status(201).render("404")
     }
 })
 
 app.listen(port, ()=>{
-    console.log('listening on port ${port}');
+    console.log('listening on port');
 })
