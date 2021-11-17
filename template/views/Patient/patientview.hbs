@@ -1,337 +1,435 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<head>
+    <title></title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="../CSS/patient.css">
+    <link rel="stylesheet" href="../CSS/footer.css" />
+    <link rel="stylesheet" href="../CSS/nav1.css">
+</head>
 
-  <link rel="stylesheet" href="../CSS/patient.css">
-    </head>
 
 
-    
-    <style>
-        *, *:before, *:after {
-    box-sizing: border-box;
-    outline: none;
-    padding: 0px;
-    margin: 0;
-  }
-  
-        .mainfolder{
-            border: 1px solid gray;
-            width: 100%;
-            margin: 0 auto;
-           
-        }
-       
-        .mainfolder .heading{
-            text-align: center;
-            font-weight: bolder;
-            font-size: 50px;
-        }
-        .mainfolder .navbar{
-            background-color: blue;
-            height: 60px;
-            flex-direction: row;
-        }
-        .mainfolder .navbar .icon{
-            float: right;
-            margin-right: 30px;
-            font-size: 40px;
-            color: white;
-        }
-        .mainfolder .navbar .save button{
-            float: left;
-            margin-left: 8px;
-            background-color: rgb(16, 150, 16);
-            color: white;
-            border-radius: 2px;
-        }
-        .mainfolder .navbar .pres{
-            float: right;
-             font-size: 40px;
-             margin-right: 20px;
-             color: white;
-        }
-       
-        .design{
-            background-color: blue;
-            color:white;
-        }
-        .mainfolder .navbar .phone input{
-         border: none;
-         font-size: 20px;
-         float: left;
-        }
-        #target{
-            border:none;
-            border-bottom: 1px solid rgb(24, 19, 19);
-            font-size: 150%;
-        }
+<style>
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+        outline: none;
+        padding: 0px;
+        margin: 0;
+    }
 
-    </style>
-    <body>
-        <div class="mainfolder">
-             <nav class="navbar">
-                        {{!-- <form>
-                            <div class="phone">
-                                <input type="number" id="phone" readonly="readonly" name="phone" placeholder="Mobile number" value="{{``.phone}}">
+    .mainfolder {
+        border: 1px solid gray;
+        width: 100%;
+        margin: 0 auto;
+
+    }
+
+    .mainfolder .heading {
+        text-align: center;
+        font-weight: bolder;
+        font-size: 50px;
+    }
+
+    .mainfolder .navbar {
+        background-color: blue;
+        height: 60px;
+        flex-direction: row;
+    }
+
+    .mainfolder .navbar .icons {
+        float: right;
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .mainfolder .navbar .icon {
+
+
+        margin-left: 30px;
+        font-size: 2rem;
+        color: white;
+    }
+
+    .mainfolder .navbar .pres {
+
+
+        font-size: 1.5rem;
+        margin-right: 20px;
+        margin-left: 24%;
+        color: white;
+
+    }
+
+
+
+    .design {
+        background-color: blue;
+        color: white;
+    }
+
+    .mainfolder .navbar .company_name {
+
+        font-size: 2.5rem;
+        color: black;
+        font-weight: bold;
+
+    }
+
+    .mainfolder .navbar .phone input {
+        border: none;
+        font-size: 20px;
+        float: left;
+    }
+
+    #target {
+        border: none;
+        border-bottom: 1px solid rgb(24, 19, 19);
+        font-size: 150%;
+    }
+</style>
+
+<body>
+    <div class="mainfolder">
+        <nav class="navbar">
+            {{!-- <form>
+                <div class="phone">
+                    <input type="number" id="phone" readonly="readonly" name="phone" placeholder="Mobile number"
+                        value="{{``.phone}}">
+                </div>
+            </form> --}}
+            {{!-- <div class="save">
+                <button class="save_num" onclick="save_no()">save</button>
+            </div> --}}
+            <div class="company_name">
+                Aarugyan
+            </div>
+            <div class="icons">
+                <a href="/patient/profile">
+                    <div class="icon">
+                        <i class="icon-user"></i>
+                    </div>
+                </a>
+                <a href="/patient/patientprescrip">
+                    <div class="pres">
+                        <i style="font-size: 2rem;" class="icon-medkit"></i>
+                    </div>
+                </a>
+            </div>
+        </nav>
+        <section id="show_medicine">
+            <div class="medi">
+                <div class="medi_left">
+                    <div class="med_head">Your Medicines!</div>
+                </div>
+                <div class="medi_right">
+                    <div class="finish_tag">
+                        <lottie-player src="https://assets10.lottiefiles.com/private_files/lf30_yo2zavgg.json"
+                            background="transparent" speed="1" style="width: 35%; height: 35%; object-fit:contain;" loop
+                            autoplay></lottie-player>
+                    </div>
+                    <input type="hidden" id="check_data" value="{{med_res.name}}">
+                    {{#each med_res.medicine}}
+                    <div class="med_seg">
+                        <div class="med_seg2">
+                            <h3>{{this.m_name}}</h3>
+                        </div>
+                        <div>
+                            <button class="btn btn-danger">{{this.m_after}}</button>
+                            <button class="btn btn-success" id="{{this._id}}" onclick="m_done(this)">Done</button>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </section>
+
+        <section id="caloriecalculator">
+            <div class="health">
+                <div class="left">
+                    <div class="wish"><label id="Greet"></label> <label>{{result.username}}</label>
+                        <br>
+                        <label id="foodquestion"></label><br />
+                    </div>
+
+                    <input list="browsers" name="myBrowser" id="food" placeholder="Food taken" />
+                    <datalist id="browsers">
+                        <!-- All are in 100 gms  -->
+
+                        <option value="Noodles 138cal">
+                        <option value="Chicken 239cal">
+                        <option value="Milk 103cal">
+                        <option value="Nuts/ Almonds 132cal">
+                        <option value="Almond with milk 200cal">
+                        <option value="1 Banana 105cal">
+                        <option value="2 Bananas 210cal">
+                        <option value="1 Apple 95cal">
+                        <option value="2 Apples 190cal">
+                        <option value="1 Orange 60cal">
+                        <option value="2 Oranges 120cal">
+                        <option value="Grapes 80cal">
+                        <option value="Oats 297cal">
+                        <option value="Rice 130cal">
+                        <option value="Bread, white 265cal">
+                        <option value="Bread, brown 313cal">
+                        <option value="Fish 206cal">
+                        <option value="Dosa 170cal">
+                        <option value="Idli 2 piece, sambar and chutney 90cal">
+                        <option value="Chapatis 297cal">
+                        <option value="Egg roll 196cal">
+                        <option value="Veg roll 154cal">
+                        <option value="Chicken roll 237cal">
+                        <option value="Mutton 294cal">
+                        <option value="Dal 209cal">
+                            <!-- <option value=""> -->
+
+                    </datalist>
+
+                    <button onclick="foodFunction()" class="foodaddbutton">Add</button>
+                    <button onclick="deleteFood()" class="foodaddbutton">Clear</button>
+                    <button onclick="seeRemarks()" class="seeRemarksbutton">submit</button>
+                    <div id="foodtaken"></div>
+                    <div id="total"></div>
+                    <div class="remarks"><label id="ok_stats"></label></div>
+                </div>
+                <div class="right">
+                    <lottie-player src="https://assets4.lottiefiles.com/temp/lf20_nXwOJj.json" background="transparent"
+                        speed="1" style="width: 300px; height: 300px" loop autoplay></lottie-player>
+                </div>
+
+            </div>
+        </section>
+        <section id="BMI">
+            <div class="parent">
+
+                <div class="BMI">
+                    <h3>Calculate your body-mass index</h3>
+                    <form>
+                        <label for="weight">Enter Weight(in kg)</label>
+                        <input type="number" id="weight"><br>
+                        <label for="height"> Enter Height(in cm)</label>
+                        <input type="number" id="height"><br>
+                        <br>
+
+                        <button onclick="result()" type="button" class="btn btn-primary">Calculate</button>
+                    </form>
+
+                </div>
+                <div class="status">
+                    <div id="image_display">
+                        <lottie-player id="hello" src="https://assets10.lottiefiles.com/packages/lf20_agde5pma.json"
+                            background="transparent" speed="1" loop autoplay></lottie-player>
+                        <lottie-player class="bmiindicator" id="normal"
+                            src="https://assets7.lottiefiles.com/packages/lf20_kOvJ8c/normal/data.json"
+                            background="transparent" speed="1" loop autoplay></lottie-player>
+                        <lottie-player class="bmiindicator" id="overweight"
+                            src="https://assets7.lottiefiles.com/packages/lf20_3ejhEJ/over/data.json"
+                            background="transparent" speed="1" loop autoplay></lottie-player>
+                        <lottie-player class="bmiindicator" id="obese"
+                            src="https://assets7.lottiefiles.com/packages/lf20_6rRg5u/obese/data.json"
+                            background="transparent" speed="1" loop autoplay></lottie-player>
+                        <lottie-player class="bmiindicator" id="extreme"
+                            src="https://assets7.lottiefiles.com/packages/lf20_e2MF8p/morbid-obesity/data.json"
+                            background="transparent" speed="1" loop autoplay></lottie-player>
+                        <lottie-player class="bmiindicator" id="lottieplayer"
+                            src="https://assets4.lottiefiles.com/packages/lf20_mZWdIm.json" background="transparent"
+                            speed="1" loop autoplay></lottie-player>
+                        <lottie-player class="bmiindicator" id="thin"
+                            src="https://assets5.lottiefiles.com/packages/lf20_unycsfzn.json" background="transparent"
+                            speed="1" loop autoplay></lottie-player>
+                    </div>
+                    <div class="result">
+                        <div id="index">
+                            Height and weight are required to calculate your BMI
+                        </div>
+                        <div id="remarks">
+                            And that's very important
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <section id="watertracker">
+                <div class="drinking_girl">
+                    <img style="height: 100%;max-height: 400px;object-fit:contain" src="../image/drinking_water.svg"
+                        alt="">
+                </div>
+                <div class="watercalculator">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" style="display: none;">
+                        <symbol id="wave">
+                            <path
+                                d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z">
+                            </path>
+                            <path
+                                d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z">
+                            </path>
+                            <path
+                                d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z">
+                            </path>
+                            <path
+                                d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z">
+                            </path>
+                        </symbol>
+                    </svg>
+                    <div class="page" id="page">
+                        <div class="message">
+                            <div id="quote">
+                                Stay hydrated, Drink water
                             </div>
-                        </form> --}}
-                            {{!-- <div class="save">
-                                <button  class="save_num" onclick="save_no()">save</button>
-                            </div> --}}
-                            <a href="/patient/profile"><div class="icon">
-                                 <i class="icon-user"></i>
-                             </div></a>
-                            <a href="/patient/patientprescrip"> <div class="pres">
-                                   <i class="icon-medkit"></i>
-                             </div></a>
-             </nav>
-             <section id="show_medicine">
-                <div class="medi">
-                   <div class="medi_left">
-                          <div class="med_head">Your Medicines!</div>
-                   </div>
-                   <div class="medi_right">
-                       <div class="finish_tag">
-                            <lottie-player src="https://assets10.lottiefiles.com/private_files/lf30_yo2zavgg.json"  background="transparent"  speed="1"  style="width: 35%; height: 35%; object-fit:contain;" loop autoplay></lottie-player>
+                        </div>
+                        <div class="percent">
+                            <div class="percent__inner">
+                                <div class="percent__num" id="count">0</div>
+                                <div class="glass" id="glassnumber">glass</div>
                             </div>
-                       <input type="hidden" id="check_data" value="{{med_res.name}}">
-                              {{#each med_res.medicine}}
-                              <div class="med_seg">
-                                 <div class="med_seg2">
-                                     <h3>{{this.m_name}}</h3>
-                                 </div>
-                                 <div>
-                                     <button class="btn btn-danger">{{this.m_after}}</button>
-                                     <button class="btn btn-success" id="{{this._id}}" onclick="m_done(this)">Done</button>
-                                 </div>
-                              </div>
-                              {{/each}}
-                   </div>
+                        </div>
+                        {{!-- <button class="button" id="button">Drink</button> --}}
+                        <button class="button" id="button" onclick="drink()"><i class="fas fa-plus"></i></button>
+                        <button class="resetbtn" id="resetbtn" onclick="reset()"><i class="fas fa-minus"></i></button>
+                        <div class="water" id="water">
+                            <svg class="water__wave water__wave_back" viewBox="0 0 560 20">
+                                <use xlink:href="#wave"></use>
+                            </svg>
+                            <svg class="water__wave water__wave_front" viewBox="0 0 560 20">
+                                <use xlink:href="#wave"></use>
+                            </svg>
+                            <div class="water__inner">
+                                <div class="bubble bubble_1"></div>
+                                <div class="bubble bubble_2"></div>
+                                <div class="bubble bubble_3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="targetedinput">
+                        <span style="font-weight: bold; font-size: 1.2rem;">Enter Target:</span> <input type="number"
+                            id="target" value="0">
+                        <button class="btn btn-success" onclick="update()">Update</button>
+                    </div>
                 </div>
-             </section>
-
-             <section id="caloriecalculator">
-                  <div class="health">
-        <div class="left">
-            <div class="wish"><label id="Greet"></label> <label>{{result.username}}</label>
-                <br>
-                <label id="foodquestion"></label><br />
-            </div>
-          
-            <input list="browsers" name="myBrowser" id="food" placeholder="Food taken" />
-            <datalist id="browsers">
-                <!-- All are in 100 gms  -->
-
-                <option value="Noodles 138cal">
-                <option value="Chicken 239cal">
-                <option value="Milk 103cal">
-                <option value="Nuts/ Almonds 132cal">
-                <option value="Almond with milk 200cal">
-                <option value="1 Banana 105cal">
-                <option value="2 Bananas 210cal">
-                <option value="1 Apple 95cal">
-                <option value="2 Apples 190cal">
-                <option value="1 Orange 60cal">
-                <option value="2 Oranges 120cal">
-                <option value="Grapes 80cal">
-                <option value="Oats 297cal">
-                <option value="Rice 130cal">
-                <option value="Bread, white 265cal">
-                <option value="Bread, brown 313cal">
-                <option value="Fish 206cal">
-                <option value="Dosa 170cal">
-                <option value="Idli 2 piece, sambar and chutney 90cal">
-                <option value="Chapatis 297cal">
-                <option value="Egg roll 196cal">
-                <option value="Veg roll 154cal">
-                <option value="Chicken roll 237cal">
-                <option value="Mutton 294cal">
-                <option value="Dal 209cal">
-                <!-- <option value=""> -->
-
-            </datalist>
-
-            <button onclick="foodFunction()" class="foodaddbutton">Add</button>
-            <button onclick="deleteFood()" class="foodaddbutton">Clear</button>
-            <button onclick="seeRemarks()" class="seeRemarksbutton" >submit</button>
-            <div id="foodtaken"></div>
-            <div id="total"></div>
-            <div class="remarks"><label id="ok_stats"></label></div>
-        </div>
-        <div class="right">
-            <lottie-player src="https://assets4.lottiefiles.com/temp/lf20_nXwOJj.json" background="transparent"
-                speed="1" style="width: 300px; height: 300px" loop autoplay></lottie-player>
-        </div>
-        
+            </section>
     </div>
-             </section>
-             <section id="BMI">
-                      <div class="parent">
-
-        <div class="BMI">
-            <h3>Calculate your body-mass index</h3>
-            <form>
-                <label for="weight">Enter Weight(in kg)</label>
-                <input type="number" id="weight"><br>
-                <label for="height"> Enter Height(in cm)</label>
-                <input type="number" id="height"><br>
-                <br>
-
-                <button onclick="result()" type="button" class="btn btn-primary">Calculate</button>
-            </form>
-            
-        </div>
-        <div class="status">
-            <div id="image_display">
-                <lottie-player id="hello"  src="https://assets10.lottiefiles.com/packages/lf20_agde5pma.json" background="transparent"  speed="1"   loop  autoplay></lottie-player>
-                <lottie-player class="bmiindicator" id="normal" src="https://assets7.lottiefiles.com/packages/lf20_kOvJ8c/normal/data.json"  background="transparent"  speed="1"  loop  autoplay></lottie-player>
-                <lottie-player class="bmiindicator" id="overweight" src="https://assets7.lottiefiles.com/packages/lf20_3ejhEJ/over/data.json"  background="transparent"  speed="1"    loop  autoplay></lottie-player>
-                <lottie-player class="bmiindicator" id="obese" src="https://assets7.lottiefiles.com/packages/lf20_6rRg5u/obese/data.json"  background="transparent"  speed="1"  loop  autoplay></lottie-player>
-                <lottie-player class="bmiindicator" id="extreme" src="https://assets7.lottiefiles.com/packages/lf20_e2MF8p/morbid-obesity/data.json"  background="transparent"  speed="1"  loop  autoplay></lottie-player>
-                <lottie-player class="bmiindicator" id="lottieplayer" src="https://assets4.lottiefiles.com/packages/lf20_mZWdIm.json"  background="transparent"  speed="1"    loop  autoplay></lottie-player>
-                <lottie-player class="bmiindicator" id="thin" src="https://assets5.lottiefiles.com/packages/lf20_unycsfzn.json"  background="transparent"  speed="1"    loop  autoplay></lottie-player>
-            </div>
-            <div class="result">
-                <div id="index">
-                    Height and weight are required to calculate your BMI
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Pescribtion</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Red Black Tree</h3>
+                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula
+                            rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum
+                            vel in justo.</p>
+                    </div>
+                    <div class="col item social">
+                        <a href="https://www.facebook.com/" target="_blank"><i class="icon ion-social-facebook"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i
+                                class="icon ion-social-instagram"></i></a>
+                        <a href="https://twitter.com/" target="_blank"><i class="icon ion-social-twitter"></i></a>
+                    </div>
                 </div>
-                <div id="remarks">
-                    And that's very important
-                </div>
+                <p class="copyright">Red Black Tree © 2021</p>
             </div>
-        
-                
-         
-         
-        </div>
+        </footer>
     </div>
-             <section id="watertracker">
-                 <div class="drinking_girl">
-                    <img style="height: 100%;max-height: 400px;object-fit:contain" src="../image/drinking_water.svg" alt="">
-                 </div>
-               <div class= "watercalculator">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" style="display: none;">
-  <symbol id="wave">
-    <path d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"></path>
-    <path d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"></path>
-    <path d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z"></path>
-    <path d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"></path>
-  </symbol>
-</svg>
-<div class="page" id="page">
-  <div class="message">
-      <div id="quote">
-        Stay hydrated, Drink water
-      </div>
-    </div>
-  <div class="percent">
-    <div class="percent__inner">
-      <div class="percent__num" id="count">0</div>
-      <div class="glass" id="glassnumber">glass</div>
-    </div>
-  </div>
-  {{!-- <button class="button" id="button">Drink</button> --}}
-     <button class="button" id="button" onclick="drink()"><i class="fas fa-plus"></i></button>
-    <button  class="resetbtn" id="resetbtn" onclick="reset()"><i class="fas fa-minus"></i></button>
-  <div class="water" id="water">
-    <svg class="water__wave water__wave_back" viewBox="0 0 560 20">
-      <use xlink:href="#wave"></use>
-    </svg>
-    <svg class="water__wave water__wave_front" viewBox="0 0 560 20">
-      <use xlink:href="#wave"></use>
-    </svg>
-    <div class="water__inner">
-      <div class="bubble bubble_1"></div>
-      <div class="bubble bubble_2"></div>
-      <div class="bubble bubble_3"></div>
-    </div>
-  </div>
-</div>
-<div class="targetedinput"> 
-           <span style="font-weight: bold; font-size: 1.2rem;">Enter Target:</span> <input type="number" id="target" value="0">
-            <button class="btn btn-success" onclick="update()">Update</button>
-        </div>
-    </div>
-         </section>
-        </div>
-            <script>
+    <script>
 
-      //medicines
-      
-      let text_check = document.querySelector("#check_data")
-      const data = document.querySelector(".medi_right");
-      console.log(data)
-      console.log(text_check.value);
-      if(text_check.value === ""){
-          console.log("No Med")
-          document.querySelector(".medi_right").style.display = "none";
-          document.querySelector(".medi_left").innerText = "No Medicine Scheduled!"
-      }
-      else{
-          document.querySelector(".medi_right").style.display = "block";
-      }
-      
-      function m_done(item){
-          //console.log(item.parentElement.parentElement)
-          item.parentElement.parentElement.style.display = "none";
-          //document.querySelector(".med_seg").style.display = "none";
-          console.log("himanta")
-          let count=0; 
-          document.querySelectorAll(".med_seg").forEach((item)=> {
-              console.log(item.style.display)
-              if(!item.style.display)
-                 count++;
-              })
-              if(count === 0){
-                  console.log("finished")
-                  document.querySelector(".medi_head").innerText = "Finished Up All";
-                  document.querySelector(".finish_tag").style.display = "block";
-                  //document.querySelector(".medi_head").innerText = "Finished Up All";
-              }
-                
-          //console.log("deleted");
-      }
-      //endof medicine
+        //medicines
+
+        let text_check = document.querySelector("#check_data")
+        const data = document.querySelector(".medi_right");
+        console.log(data)
+        console.log(text_check.value);
+        if (text_check.value === "") {
+            console.log("No Med")
+            document.querySelector(".medi_right").style.display = "none";
+            document.querySelector(".medi_left").innerText = "No Medicines Scheduled!"
+        }
+        else {
+            document.querySelector(".medi_right").style.display = "block";
+        }
+
+        function m_done(item) {
+            //console.log(item.parentElement.parentElement)
+            item.parentElement.parentElement.style.display = "none";
+            //document.querySelector(".med_seg").style.display = "none";
+            console.log("himanta")
+            let count = 0;
+            document.querySelectorAll(".med_seg").forEach((item) => {
+                console.log(item.style.display)
+                if (!item.style.display)
+                    count++;
+            })
+            if (count === 0) {
+                console.log("finished")
+                document.querySelector(".medi_head").innerText = "Finished Up All";
+                document.querySelector(".finish_tag").style.display = "block";
+                //document.querySelector(".medi_head").innerText = "Finished Up All";
+            }
+
+            //console.log("deleted");
+        }
+        //endof medicine
 
 
-      // calorie counter starts
+        // calorie counter starts
         var array = Array();
         var totalCalorie = 0;
         function foodFunction() {
             var x = document.getElementById("food").value;
             if (x.trim() != '') {
                 array.push(x);
-            
 
 
-            document.getElementById("food").value = "";
-            var e = "<hr/>";
 
-            for (var y = 0; y < array.length; y++) {
-                var curr = array[y];
-                // totalCalorie += Number(curr.slice(curr.length - 6, curr.length - 3));
-                totalCalorie+= calory_in_numeric(curr);
-                e += y + 1 + ". " + curr + "<br/>";
+                document.getElementById("food").value = "";
+                var e = "<hr/>";
 
+                for (var y = 0; y < array.length; y++) {
+                    var curr = array[y];
+                    // totalCalorie += Number(curr.slice(curr.length - 6, curr.length - 3));
+                    totalCalorie += calory_in_numeric(curr);
+                    e += y + 1 + ". " + curr + "<br/>";
+
+                }
+                document.getElementById("foodtaken").innerHTML = e;
+                document.getElementById("total").innerHTML = "Total Calorie : " + totalCalorie + " cal";
+                console.log(totalCalorie);
             }
-            document.getElementById("foodtaken").innerHTML = e;
-            document.getElementById("total").innerHTML = "Total Calorie : " + totalCalorie + " cal";
-            console.log(totalCalorie);
-          }
-          totalCalorie = 0;
+            totalCalorie = 0;
         }
         function deleteFood() {
             array = Array();
             totalCalorie = 0;
             document.getElementById("foodtaken").innerHTML = "";
             document.getElementById("total").innerHTML = "Total Calorie : " + 0;
-            document.getElementById('ok_stats').innerHTML="";
+            document.getElementById('ok_stats').innerHTML = "";
         }
         var myDate = new Date();
         var hrs = myDate.getHours();
@@ -347,269 +445,278 @@
 
         document.getElementById('foodquestion').innerHTML =
             " What did you take in " + meal_name + '?';
-   
+
         // totalCalorie=Number(totalCalorie);
         // console.log(Number(totalCalorie))
         var ok;
+<<<<<<< HEAD
         function seeRemarks(){
        // alert(totalCalorie); --}}
             if(meal_name==="Breakfast"){
                 if(totalCalorie>=300 && totalCalorie<=400){
                      ok="You have had  a healthy breakfast";
+=======
+        function seeRemarks() {
+            // alert(totalCalorie);
+            if (meal_name === "Breakfast") {
+                if (totalCalorie >= 300 && totalCalorie <= 400) {
+                    ok = "You have had  a healthy breakfast";
+>>>>>>> e0007525666d6218b492ea189d43c819ad50f151
                 }
-                else if(totalCalorie<300 && totalCalorie>=250){
-                    ok="Oh! slightly less than recommended"; 
+                else if (totalCalorie < 300 && totalCalorie >= 250) {
+                    ok = "Oh! slightly less than recommended";
                 }
-                else if(totalCalorie<250){
-                    ok="Too low calory intake"; 
+                else if (totalCalorie < 250) {
+                    ok = "Too low calory intake";
                 }
-                else if(totalCalorie>400 && totalCalorie<=480){
-                    ok="Slightly higher calory intake than recommended";
+                else if (totalCalorie > 400 && totalCalorie <= 480) {
+                    ok = "Slightly higher calory intake than recommended";
                 }
-                else if(totalCalorie>480){
-                    ok="Higher calory intake than recommended";
+                else if (totalCalorie > 480) {
+                    ok = "Higher calory intake than recommended";
                 }
-       
-            }
-           else if(meal_name==="Lunch"){
-                if(totalCalorie>=500 && totalCalorie<=700){
-                     ok="You have had taken a healthy Lunch";
-                }
-                else if(totalCalorie<500 && totalCalorie>=450){
-                    ok="Oh! slightly less than recommended"; 
-                }
-                else if(totalCalorie<450){
-                    ok="Lower calory intake than recommended"; 
-                }
-                else if(totalCalorie>700){
-                    ok="Higher calory intake than recommended";
-                }
-            }
-          else  if(meal_name==="Dinner"){
-                if(totalCalorie>=500 && totalCalorie<=700){
-                     ok="You have had taken a healthy Dinner";
-                }
-                else if(totalCalorie<500 && totalCalorie>=450){
-                    ok="Oh! slightly less than recommended"; 
-                }
-                else if(totalCalorie<450){
-                    ok="Lower calory intake than recommended"; 
-                }
-                else if(totalCalorie>700){
-                    ok="Higher calory intake than recommended";
-                }
-            }
-            document.getElementById('ok_stats').innerHTML= ok
-        }
-        function calory_in_numeric(x){
-            var z="";
-            var len=x.length; 
-            len=len-1; 
-            while(x.charAt(len)!=' '){
 
-                if(x.charCodeAt(len)>=48 && x.charCodeAt(len)<=57){
-                    z=x.charAt(len)+z;
-        
-                }
-                len--; 
-      
             }
-       
+            else if (meal_name === "Lunch") {
+                if (totalCalorie >= 500 && totalCalorie <= 700) {
+                    ok = "You have had taken a healthy Lunch";
+                }
+                else if (totalCalorie < 500 && totalCalorie >= 450) {
+                    ok = "Oh! slightly less than recommended";
+                }
+                else if (totalCalorie < 450) {
+                    ok = "Lower calory intake than recommended";
+                }
+                else if (totalCalorie > 700) {
+                    ok = "Higher calory intake than recommended";
+                }
+            }
+            else if (meal_name === "Dinner") {
+                if (totalCalorie >= 500 && totalCalorie <= 700) {
+                    ok = "You have had taken a healthy Dinner";
+                }
+                else if (totalCalorie < 500 && totalCalorie >= 450) {
+                    ok = "Oh! slightly less than recommended";
+                }
+                else if (totalCalorie < 450) {
+                    ok = "Lower calory intake than recommended";
+                }
+                else if (totalCalorie > 700) {
+                    ok = "Higher calory intake than recommended";
+                }
+            }
+            document.getElementById('ok_stats').innerHTML = ok
+        }
+        function calory_in_numeric(x) {
+            var z = "";
+            var len = x.length;
+            len = len - 1;
+            while (x.charAt(len) != ' ') {
+
+                if (x.charCodeAt(len) >= 48 && x.charCodeAt(len) <= 57) {
+                    z = x.charAt(len) + z;
+
+                }
+                len--;
+
+            }
+
             console.log(z);
-            return parseInt(z,10);
+            return parseInt(z, 10);
 
         }
-        
+
         // calorie counter ends
 
-//Bmi calculator starts
+        //Bmi calculator starts
 
         function result() {
 
             var x = document.getElementById("weight").value;
             var y = document.getElementById("height").value;
-            if(x.trim()!="" && y.trim()!=""){
-            y = y / 100;
-            y = y * y;
-            x = x / y;
-            x = (Math.round(x * 100) / 100).toFixed(2);
-            document.getElementById("hello").style.display ="none";
-            var all = document.querySelectorAll(".bmiindicator");
-            for (var i = 0; i < all.length; i++) {
-                all[i].style.display = "none";
-            }
-           
+            if (x.trim() != "" && y.trim() != "") {
+                y = y / 100;
+                y = y * y;
+                x = x / y;
+                x = (Math.round(x * 100) / 100).toFixed(2);
+                document.getElementById("hello").style.display = "none";
+                var all = document.querySelectorAll(".bmiindicator");
+                for (var i = 0; i < all.length; i++) {
+                    all[i].style.display = "none";
+                }
 
-            
-            document.getElementById("index").innerHTML = "<br>" + "BMI= " + x + " kg/m2"
-            if (x <= 29.9 && x >= 25) {
-                document.getElementById("remarks").innerHTML = "<br>" + "Status: " + "Overweight";
-                document.getElementById("overweight").style.display = "block";
-                
+
+
+                document.getElementById("index").innerHTML = "<br>" + "BMI= " + x + " kg/m2"
+                if (x <= 29.9 && x >= 25) {
+                    document.getElementById("remarks").innerHTML = "<br>" + "Status: " + "Overweight";
+                    document.getElementById("overweight").style.display = "block";
+
+                }
+                else if (x >= 18.5 && x <= 24.9) {
+                    document.getElementById("remarks").innerHTML = "Status: " + "Normal";
+
+                    document.getElementById("normal").style.display = "block";
+                }
+                else if (x >= 30 && x <= 39.9) {
+                    document.getElementById("remarks").innerHTML = "Status:" + "Obesity";
+                    document.getElementById("obese").style.display = "block";
+                }
+                else if (x > 40) {
+                    document.getElementById("remarks").innerHTML = "Status:" + "Extreme Obesity";
+                    document.getElementById("extreme").style.display = "block";
+                }
+                else {
+                    document.getElementById("remarks").innerHTML = "Status:" + "Underweight";
+                    document.getElementById("thin").style.display = "block";
+                }
             }
-            else if (x >= 18.5 && x <= 24.9) {
-                document.getElementById("remarks").innerHTML = "Status: " + "Normal";
-                
-                document.getElementById("normal").style.display = "block";
-            }
-            else if (x >= 30 && x <= 39.9) {
-                document.getElementById("remarks").innerHTML = "Status:" + "Obesity";
-                document.getElementById("obese").style.display = "block";
-            }
-            else if(x>40){
-                document.getElementById("remarks").innerHTML = "Status:" + "Extreme Obesity";
-                document.getElementById("extreme").style.display = "block";
-            }
-            else{
-                document.getElementById("remarks").innerHTML = "Status:" + "Underweight";
-                document.getElementById("thin").style.display = "block";
-            }
+
         }
-            
-        }
- 
+
 
         // water counter starts
 
-      var count = 0;
-      var height = 0;
-      var button = document.getElementById('button');
-      var water = document.getElementById('water');
-      var mark=9;
-      function update(){
-        var target = document.getElementById('target').value;
-        if(target>0){
-            document.getElementById('target').value = "";
-            mark=target;
-            
-        }
-        height = 0;
-        count=0;
-        water.style.height = height + 'px';
-        document.getElementById('glassnumber').innerHTML = "glass";
-        document.getElementById('quote').innerHTML = "Target Updated";
-        document.getElementById('count').innerHTML = count;
+        var count = 0;
+        var height = 0;
+        var button = document.getElementById('button');
+        var water = document.getElementById('water');
+        var mark = 9;
+        function update() {
+            var target = document.getElementById('target').value;
+            if (target > 0) {
+                document.getElementById('target').value = "";
+                mark = target;
 
-    }
-      function drink() {
-        count++;
-        height += 730/mark;
-        water.style.height = height + 'px';
-        document.getElementById('count').innerHTML = count;
-        if(count>1){
-            document.getElementById('glassnumber').innerHTML = "glasses";
-        }else{
+            }
+            height = 0;
+            count = 0;
+            water.style.height = height + 'px';
             document.getElementById('glassnumber').innerHTML = "glass";
-        }
-        console.log(count)
-        if(count>0){
-            document.getElementById("resetbtn").disabled = false;
-        }
-        var message="" ;
-        if(count==0){
-            message = "Stay hydrated, Drink water";
-           
-        }
-        if(count==1){
-           message = "Gulp! And it's done.";
-        }
-        if(count==2){
-            message = "You're doing great! Keep it up!";
-           
-        }
-        if(count==3){
-            message = "Awesome! Keep drinking!";
-           
-        }
-        if(count==4){
-            message = "Way to go!";
-           
-        }
-        if(count==5){
-            message = "Half-Way there!";
-           
-        }
-        if(count==6){
-            message = "Almost there!";
-           
-        }
-        if(count==7){
-            message = "You Rock!";
-           
-        }
-        if(count==8){
-            message = "Water is good!";
-           
-        }
-        if(count==mark){
-            message = "You made it";
-            
-        }
-        document.getElementById('quote').innerHTML = message;
+            document.getElementById('quote').innerHTML = "Target Updated";
+            document.getElementById('count').innerHTML = count;
 
-      }
-      function reset() {
-        count--;
-        height-=730/mark;
-        water.style.height = height + 'px';
-        document.getElementById('count').innerHTML = count;
-        if(count<=0){
-            document.getElementById("resetbtn").disabled = true;
         }
-        if(count>1){
-            document.getElementById('glassnumber').innerHTML = "glasses";
-        }else{
-            document.getElementById('glassnumber').innerHTML = "glass";
+        function drink() {
+            count++;
+            height += 730 / mark;
+            water.style.height = height + 'px';
+            document.getElementById('count').innerHTML = count;
+            if (count > 1) {
+                document.getElementById('glassnumber').innerHTML = "glasses";
+            } else {
+                document.getElementById('glassnumber').innerHTML = "glass";
+            }
+            console.log(count)
+            if (count > 0) {
+                document.getElementById("resetbtn").disabled = false;
+            }
+            var message = "";
+            if (count == 0) {
+                message = "Stay hydrated, Drink water";
+
+            }
+            if (count == 1) {
+                message = "Gulp! And it's done.";
+            }
+            if (count == 2) {
+                message = "You're doing great! Keep it up!";
+
+            }
+            if (count == 3) {
+                message = "Awesome! Keep drinking!";
+
+            }
+            if (count == 4) {
+                message = "Way to go!";
+
+            }
+            if (count == 5) {
+                message = "Half-Way there!";
+
+            }
+            if (count == 6) {
+                message = "Almost there!";
+
+            }
+            if (count == 7) {
+                message = "You Rock!";
+
+            }
+            if (count == 8) {
+                message = "Water is good!";
+
+            }
+            if (count == mark) {
+                message = "You made it";
+
+            }
+            document.getElementById('quote').innerHTML = message;
+
         }
-        if(count==0){
-            message = "Stay hydrated, Drink water";
-           
+        function reset() {
+            count--;
+            height -= 730 / mark;
+            water.style.height = height + 'px';
+            document.getElementById('count').innerHTML = count;
+            if (count <= 0) {
+                document.getElementById("resetbtn").disabled = true;
+            }
+            if (count > 1) {
+                document.getElementById('glassnumber').innerHTML = "glasses";
+            } else {
+                document.getElementById('glassnumber').innerHTML = "glass";
+            }
+            if (count == 0) {
+                message = "Stay hydrated, Drink water";
+
+            }
+            if (count == 1) {
+                message = "Gulp! And it's done.";
+            }
+            if (count == 2) {
+                message = "You're doing great! Keep it up!";
+
+            }
+            if (count == 3) {
+                message = "Awesome! Keep drinking!";
+
+            }
+            if (count == 4) {
+                message = "Way to go!";
+
+            }
+            if (count == 5) {
+                message = "Half-Way there!";
+
+            }
+            if (count == 6) {
+                message = "Almost there!";
+
+            }
+            if (count == 7) {
+                message = "You Rock!";
+
+            }
+            if (count == 8) {
+                message = "Water is good!";
+
+            }
+            if (count == 9) {
+                message = "You made it";
+
+            }
+            document.getElementById('quote').innerHTML = message;
         }
-        if(count==1){
-           message = "Gulp! And it's done.";
-        }
-        if(count==2){
-            message = "You're doing great! Keep it up!";
-           
-        }
-        if(count==3){
-            message = "Awesome! Keep drinking!";
-           
-        }
-        if(count==4){
-            message = "Way to go!";
-           
-        }
-        if(count==5){
-            message = "Half-Way there!";
-           
-        }
-        if(count==6){
-            message = "Almost there!";
-           
-        }
-        if(count==7){
-            message = "You Rock!";
-           
-        }
-        if(count==8){
-            message = "Water is good!";
-           
-        }
-        if(count==9){
-            message = "You made it";
-           
-        }
-        document.getElementById('quote').innerHTML = message;
-      }
 //water counter ends
     </script>
-        <script>
-             function save_no() {
-                 document.querySelector("#phone").classList.add("design");
-                 document.querySelector(".save_num").innerText = 'cancel';
-                 document.querySelector(".save_num").style.backgroundColor = 'red';
-             }
-        </script>
-    </body>
+    <script>
+        function save_no() {
+            document.querySelector("#phone").classList.add("design");
+            document.querySelector(".save_num").innerText = 'cancel';
+            document.querySelector(".save_num").style.backgroundColor = 'red';
+        }
+    </script>
+</body>
+
 </html>

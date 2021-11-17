@@ -43,8 +43,9 @@
     margin-top: 6%;
 }
 .medi .medi_left{
+
   width: 50%;
-  font-size:40px;
+  font-size:2rem;
   color:rgb(17, 16, 17);
   font-weight: bold;
 }
