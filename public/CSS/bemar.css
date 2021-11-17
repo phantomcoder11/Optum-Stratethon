@@ -27,7 +27,8 @@ body {
 
 .info {
   width: 45%;
-  background: rgba(20, 20, 20, .8);
+  color: black;
+  background: rgba(224, 224, 224, 0.8);
   padding: 10px 0;
   border-right: 5px solid rgba(30, 30, 30, .8);
 }

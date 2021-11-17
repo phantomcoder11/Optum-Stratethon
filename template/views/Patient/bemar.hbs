@@ -8,11 +8,12 @@
     <body>
         <div class="signupSection">
   <div class="info">
+    <div style="margin-top: 10%; font-size:1.3rem; font-weight bold;">Available Doctors</div><br/>
      {{#each bemar}}
      <div>
-         <h3><i class="icon-user-md"></i> <span style="color: white;">{{this.username}}</span></h3>
-         <h6><i class="icon-envelope"></i> <span style="color: white;">{{this.email}}</span></h6>
-         <h6><i class="icon-phone"></i> <span style="color: white;">{{this.phone}}</span></h6>
+         <h3><i class="icon-user-md"></i> <span style="color: black;">{{this.username}}</span></h3>
+         <h5><i class="icon-envelope"></i> <span style="color: black;">{{this.email}}</span></h5>
+         <h5><i class="icon-phone"></i> <span style="color: black;">{{this.phone}}</span></h5>
      </div>
      {{/each}}
   </div>
