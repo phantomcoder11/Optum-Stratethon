@@ -1,0 +1,251 @@
+/*     importing google fonts css     */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+/*******
+1. global setup
+2. nav bar
+3. Banner
+4. media query for 768 breakpoint (tablet and mobile)
+*******/
+
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+body {
+  background-color:aquamarine;
+  font-family: "Lucida Bright";
+  background-size: contain;
+}
+
+nav {
+  background: linear-gradient(
+    93deg,
+    rgb(71, 190, 226) 16%,
+    rgb(9, 84, 119) 55%
+  );
+  font-family: 'Lucida Bright';
+  height: 90px;
+  max-width: 100%;
+  opacity: 1;
+}
+label.logo {
+  color: cornsilk;
+  font-size: 35px;
+  font-weight: bold;
+  line-height: 60px;
+  margin-left: 40px;
+}
+nav ul {
+  float: right;
+  margin-right: 50px;
+}
+nav ul li {
+  display: inline-block;
+  line-height: 60px;
+  margin: 0px 20px;
+}
+
+nav ul li a {
+  color: wheat;
+  font-size: 18px;
+  font-weight: medium;
+  text-decoration: none;
+}
+a.active,
+a:hover {
+  color: #e5eff3;
+  color: rgb(53, 52, 52);
+}
+.hamberger-btn {
+  font-size: 35px;
+  color: white;
+  float: right;
+  margin-right: 30px;
+  line-height: 60px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+/* ~~~~~~~ Nav Bar ends ~~~~~~~~*/
+
+/* ~~~~~~~ Banner starts ~~~~~~~~*/
+#aboutus .parent{
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-around;
+  align-items: center;
+
+
+}
+#aboutus .parent .right .lottieplayer{
+  width: 100%;
+ 
+  object-fit: contain;
+}
+
+#aboutus .parent .right{
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  /* display: flex;
+  flex-direction: column;
+  
+  align-items: center; */
+}
+#aboutus .parent .right h1{
+  font-size: 3rem;
+  color: black;
+  font-weight: bold;
+margin-bottom: 4%;
+}
+#aboutus .parent .right p{
+  font-size: 1.3rem;
+  color: black;
+  margin-bottom: 4%;
+}
+#aboutus .parent .right button{
+  padding: 1%;
+  border-radius: 7px;
+  outline: none;
+  border: 1px solid cornflowerblue;
+  color: white;
+  background-color: cornflowerblue;
+  cursor: pointer;
+}
+
+
+
+
+#features .parent{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+ 
+}
+#features .parent .child{
+  border-radius: 20px;
+  width: 20%;
+  height: 30vh;
+  display: flex;
+  margin-bottom: 2%;
+  margin-top: 3%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(243, 105, 105); */
+  background-color:white;
+}
+
+img{
+  max-height: 80%;
+  max-width: 100%;
+  
+  object-fit: contain;
+}
+.see_more{
+  margin-top: 4%;
+  padding: 2%;
+  outline: none;
+  border: none;
+  background-color:rgb(85, 190, 85);
+  border-radius: 4px;
+  margin-bottom: 10%;
+  
+}
+.see_more:hover{
+  cursor: pointer;
+}
+/* ~~~~~~~ Banner ends ~~~~~~~~*/
+
+/* ~~~~~~~ Media Query starts ~~~~~~~~*/
+@media (max-width: 768px) {
+  /* body{
+    width: 100%;
+    height: 100%;
+  } */
+
+  label.logo {
+    font-size: 30px;
+    margin-left: 20px;
+  }
+  nav ul li a {
+    color: white;
+    font-size: 16px;
+  }
+  .hamberger-btn {
+    display: block;
+  }
+  ul {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    /* background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(45, 42, 145, 1) 97%
+    ); */
+    background: rgba(26, 24, 24, 0.87);
+    top: 90px;
+    right: 100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  nav ul li {
+    display: block;
+  }
+  a:hover {
+    background: linear-gradient(
+      93deg,
+      rgba(94, 129, 207, 1) 16%,
+      rgba(94, 161, 187, 1) 55%
+    );
+  }
+
+  #check:checked ~ ul {
+    right: -10px;
+    z-index: 100;
+  }
+  .fancy-radius {
+    display: none;
+  }
+  #features .parent{
+    flex-direction: column;
+}
+#features .parent .child{
+    margin-top: 3%;
+    width: 90%;
+    height: 35vh;
+}
+
+#aboutus .parent{
+    flex-direction: column;
+}
+
+  .greeting {
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    color: whitesmoke;
+    left: 0px;
+    top: 20px;
+    background: rgb(109, 157, 162);
+    background: linear-gradient(
+      256deg,
+      rgba(109, 157, 162, 1) 18%,
+      rgba(94, 161, 187, 1) 58%
+    );
+    transition: all 0.6s;
+    z-index: 99;
+  }
+}
+/* ~~~~~~~ Media query ends ~~~~~~~~*/

@@ -1,0 +1,168 @@
+/*     importing google fonts css     */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+/*******
+1. global setup
+2. nav bar
+3. Banner
+4. media query for 768 breakpoint (tablet and mobile)
+*******/
+
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+nav {
+  background: linear-gradient(
+    93deg,
+    rgba(68, 179, 226, 1) 16%,
+    rgba(94, 129, 207, 1) 55%
+  );
+  height: 60px;
+  max-width: 100%;
+}
+label.logo {
+  color: cornsilk;
+  font-size: 35px;
+  font-weight: bold;
+  line-height: 60px;
+  margin-left: 40px;
+}
+nav ul {
+  float: right;
+  margin-right: 50px;
+}
+nav ul li {
+  display: inline-block;
+  line-height: 60px;
+  margin: 0px 20px;
+}
+
+nav ul li a {
+  color: wheat;
+  font-size: 18px;
+  font-weight: bolder;
+}
+a.active,
+a:hover {
+  color: #44b3e2;
+  color: rgb(53, 52, 52);
+}
+.hamberger-btn {
+  font-size: 35px;
+  color: white;
+  float: right;
+  margin-right: 30px;
+  line-height: 60px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+/* ~~~~~~~ Nav Bar ends ~~~~~~~~*/
+
+/* ~~~~~~~ Banner starts ~~~~~~~~*/
+section {
+  background: url("https://ibb.co/wRMVsP3") no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  height: 90vh;
+}
+
+.fancy-radius {
+  position: absolute;
+  top: 80px;
+  right: 350px;
+  border-top: 155px solid #115a72;
+  border-right: 215px solid #0d4658;
+  border-left: 125px solid #104353;
+  border-bottom: 155px solid #146783;
+  border-radius: 75% 25% 13% 87% / 59% 59% 41% 41%;
+}
+.greeting {
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  color: whitesmoke;
+  right: 390px;
+  top: 190px;
+}
+/* ~~~~~~~ Banner ends ~~~~~~~~*/
+
+/* ~~~~~~~ Media Query starts ~~~~~~~~*/
+@media (max-width: 768px) {
+  section {
+    background-position: top right;
+  }
+
+  label.logo {
+    font-size: 30px;
+    margin-left: 20px;
+  }
+  nav ul li a {
+    color: white;
+    font-size: 16px;
+  }
+  .hamberger-btn {
+    display: block;
+  }
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(45, 42, 145, 1) 97%
+    );
+    top: 60px;
+    right: 100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  nav ul li {
+    display: block;
+  }
+  a:hover {
+    background: linear-gradient(
+      93deg,
+      rgba(94, 129, 207, 1) 16%,
+      rgba(94, 161, 187, 1) 55%
+    );
+  }
+
+  #check:checked ~ ul {
+    right: -10px;
+    z-index: 100;
+  }
+  .fancy-radius {
+    display: none;
+  }
+
+  .greeting {
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    color: whitesmoke;
+    left: 0px;
+    top: 20px;
+    background: rgb(109, 157, 162);
+    background: linear-gradient(
+      256deg,
+      rgba(109, 157, 162, 1) 18%,
+      rgba(94, 161, 187, 1) 58%
+    );
+    transition: all 0.6s;
+    z-index: 99;
+  }
+}
+/* ~~~~~~~ Media query ends ~~~~~~~~*/

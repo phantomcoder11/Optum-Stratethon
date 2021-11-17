@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../CSS/pescription.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"
+      integrity="sha256-srhz/t0GOrmVGZryG24MVDyFDYZpvUH2+dnJ8FbpGi0="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="prescription_form">
+        <form>
+        <table
+          class="prescription"
+          data-prescription_id="<?php echo $presc->prescription_id; ?>"
+          border="1"
+        >
+          <tbody>
+            <tr height="15%">
+              <td colspan="2">
+                <div class="header">
+                  <div class="logo">
+                    <img src="../image/optumlogo.svg" />
+                  </div>
+                  <div class="credentials">
+                    <h3>{{checkmail.username}}</h3>
+                    <h4><input type="text" name="doctor" id="doctor" class="doctor_num" placeholder="Doctor Name" value="{{checkmail.username}}"></h4>
+                    <div class="wrap"><input type="text" name="chamber" id="chamber" placeholder="Chamber name">
+                    <label for="">Chamber</label>
+                    </div>
+                    <div class="wrap"><input type="text" name="address" id="address" placeholder="Address">
+                    <label for="">Address</label>
+                    </div>
+                    <br />
+                  </div>
+                </div>
+                <h4 class="patientdetailsHeading">Patient Details :</h4>
+                <div>
+                <div class="patientdetails">
+                  <input type="text" id="name" name="name" placeholder="Name"/>
+                  <input id="age" type="number" name="age" placeholder="Age"/>
+                  
+                  <input  type="text" name="mobile" placeholder="Ph. No"/>
+                  <input type="search" id="gender" list="data" name="gender"placeholder="Gender" />
+                  <datalist id="data">
+                    <option value="Male">
+                    <option value="Female">
+                    <option value="Others">
+                  </datalist>
+                </div>
+                {{!-- <div class="contain">
+                  <input type="submit" id="addintro" class="btn btn-success" value="save">
+                </div> --}}
+                
+              </td>
+            </tr>
+
+            <tr>
+              <td width="40%">
+                <div class="desease_details">
+                  <div class="symptoms">
+                    <h4 class="d-header">Symptoms</h4>
+                    <textarea class="textareas" cols="30" rows="5" name="symptoms" id= "symptoms"></textarea>
+                  </div>
+
+                  <div class="advice">
+                    <h4 class="d-header">Advice</h4>
+                    <textarea class="textareas" cols="30" rows="5" name="advice" id= "advice"></textarea>
+                  </div>
+                  <div class="tests">
+                    <h4 class="d-header">Tests</h4>
+                    <textarea class="textareas" cols="30" rows="5" name="tests" id="tests"></textarea>
+                  </div>
+                </div>
+              </td>
+              <td width="60%" valign="top">
+                <span style="font-size: 3em">R<sub>x</sub></span>
+
+                <hr />
+                <div class="medicine">
+                  <label for="M_name">Medicine Name</label>
+                  <input type="text" class="todo-input1" placeholder="Medicine Name:" name="m_name" />
+                  <label for="M_take">Take for</label>
+                  <input id="age" class="todo-input2" type="text" placeholder="Take for" name="m_take"/>
+                  <label for="M_after">Schedule</label>
+                  <input id="age" class="todo-input3" type="text" placeholder="After ?" name="m_after"/>
+
+                  <button class="todo-button">
+                    <i class="fas fa-plus-square"></i>
+                  </button>
+                  
+                  <div class="todo-container">
+                    <ul class="todo-list">
+
+                    </ul>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="button_group">
+          {{!-- <input type="submit" id="issue" class="btn btn-success" value="Issue" name="issue"> --}}
+          <button class="btn btn-success" id="submit" >Issue</button>
+          <!-- <button class="pdf_prescription btn btn-danger">PDF</button> -->
+        </div>
+        </form>
+        <div id="snacking">Saving...</div>
+        <div id="snacked">Saved!</div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+      let medicines = []
+
+    const todoInput1 = document.querySelector(".todo-input1");
+    const todoInput2 = document.querySelector(".todo-input2");
+    const todoInput3 = document.querySelector(".todo-input3");
+    const todoButton = document.querySelector(".todo-button");
+    const sumbitButton = document.querySelector("#submit");
+    const todoList = document.querySelector(".todo-list");
+
+    todoButton.addEventListener('click',addTodo);
+    todoList.addEventListener('click',deleteCheck);
+    sumbitButton.addEventListener('click',issueForm);
+
+    function addTodo(e){
+      e.preventDefault();
+
+      const todoDiv = document.createElement('div');
+      
+      const medi_no = document.createElement('li');
+      const newTodo1= document.createElement('li');
+       const newTodo2= document.createElement('li');
+       const newTodo3= document.createElement('li');
+       medi_no.innerText= medicines.length;
+      newTodo1.innerText= todoInput1.value;
+      newTodo2.innerText= todoInput2.value;
+      newTodo3.innerText= todoInput3.value;
+       todoDiv.appendChild(medi_no);
+       todoDiv.appendChild(newTodo1);
+       todoDiv.appendChild(newTodo2);
+       todoDiv.appendChild(newTodo3);
+      
+      
+      const trashButton = document.createElement('button');
+      trashButton.innerHTML = '<i class= "fas fa-trash"></i>';
+      trashButton.classList.add('trash-btn');
+      todoDiv.appendChild(trashButton);
+       todoList.appendChild(todoDiv);
+       
+      todoDiv.childNodes[0].style.display = "none";
+
+       medicines.push({                                                             
+         m_no : medicines.length,                                                  
+         m_name : todoInput1.value,
+         m_take : todoInput2.value,
+         m_after : todoInput3.value
+       });
+       console.log("Deka",todoDiv.childNodes[0])
+       console.log(medicines)
+       todoInput1.value= " ";
+        todoInput2.value= " ";
+         todoInput3.value= " ";
+    }
+    function deleteCheck(e){
+      e.preventDefault();
+      const item = e.target;
+      const itemtobedel = item.parentElement.childNodes[0].innerText;
+    console.log(item,item.parentElement, item.classList,item.parentElement.childNodes[0].innerText,parseInt(itemtobedel))
+     
+      if(item.classList[0] === "trash-btn"){
+      const todo = item.parentElement;
+       todo.remove();
+      medicines = medicines.filter((item)=> item.m_no != parseInt(itemtobedel) );
+       console.log(medicines)
+      }
+    }
+   
+   async function issueForm(e){
+      e.preventDefault();
+      console.log(medicines)
+      const doctor = document.querySelector('#doctor').value;
+      const chamber = document.querySelector('#chamber').value;
+      const address = document.querySelector('#address').value;
+      const mobile = document.querySelector('#mobile').value;
+      const name = document.querySelector("#name").value;
+      const age = document.querySelector("#age").value;
+      const gender = document.querySelector("#gender").value;
+      const symptoms = document.querySelector("#symptoms").value;
+      const advice = document.querySelector("#advice").value;
+      const tests = document.querySelector("#tests").value;
+
+      const data = {
+  doctor: doctor,
+  chamber: chamber,
+  address: address,
+  mobile: mobile,
+  name : name,
+  age: age,
+  gender : gender,
+  symptoms: symptoms,
+  advice: advice,
+  tests: tests,
+  medicine: medicines
+  }
+      const response = await axios.post('http://localhost:5000/doctor/pescription',data);
+      console.log(response.data)
+    }
+
+    </script>
+  </body>
+</html>

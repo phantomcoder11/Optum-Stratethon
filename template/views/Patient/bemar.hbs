@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="../CSS/bemar.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="signupSection">
+  <div class="info">
+     {{#each bemar}}
+     <div>
+         <h3><i class="icon-user-md"></i> <span style="color: white;">{{this.username}}</span></h3>
+         <h6><i class="icon-envelope"></i> <span style="color: white;">{{this.email}}</span></h6>
+         <h6><i class="icon-phone"></i> <span style="color: white;">{{this.phone}}</span></h6>
+     </div>
+     {{/each}}
+  </div>
+  <form class="signupForm" name="signupform">
+    <h2>No pescription Available</h2>
+    <h4>Always see a doctor at the earliest</h4>
+    <h4>when you don't feel well</h4>
+    <ul class="noBullet">
+      <li id="center-btn">
+        {{!-- <input type="submit" id="join-btn" name="join" alt="Join" value="Add"> --}}
+        {{!-- <button id="join-btn" name="join" onclick="view()">Check Doctor</button> --}}
+        We have our best doctors for you!
+      </li>
+    </ul>
+  </form>
+</div>
+<script>
+   //function view(){
+     //console.log("seen!")
+     //document.querySelector(".info").style.display = "block";
+  // }
+
+</script>
+    </body>
+</html>

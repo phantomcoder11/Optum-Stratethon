@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/n_pescription.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"
+      integrity="sha256-srhz/t0GOrmVGZryG24MVDyFDYZpvUH2+dnJ8FbpGi0="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="prescription_form">
+        <table
+          class="prescription"
+          data-prescription_id="<?php echo $presc->prescription_id; ?>"
+          border="1"
+        >
+          <tbody>
+            <tr height="15%">
+              <td colspan="2">
+                <div class="header">
+                  <div class="logo">
+                    <img src="../image/optumlogo.svg" />
+                  </div>
+                  <div class="credentials">
+                    <h4>{{pres_res.doctor}}</h4>
+                    <p>Chamber : {{pres_res.Chamber}}</p>
+                    <small>{{pres_res.address}}</small>
+                    <br />
+                    {{!-- <small>Mobile No: {{pres_res.mobile}}</small> --}}
+                  </div>
+                </div>
+                <h4 class="patientdetailsHeading">Patient Details :</h4>
+                <div>
+                <div class="patientdetails">
+                  {{!-- <label for="email">Name:</label> --}}
+                  <p>Name: <span style="font-style: italic;">{{pres_res.name}}</span></p>
+                  {{!-- <label for="pwd">Age:</label> --}}
+                  <p>Age: <span style="font-style: italic;">{{pres_res.age}} years</span></p>
+
+                  {{!-- <label for="gender">Gender:</label> --}}
+                  {{!-- <input type="search" id="gender" list="data" name="gender">
+                  <datalist id="data">
+                    <option value="Male">
+                    <option value="Female">
+                    <option value="Others">
+                  </datalist> --}}
+                  <p>Gender: <span style="font-style: italic;">{{pres_res.gender}}</span></p>
+                  <p>Ph. No: <span style="font-style: italic;">{{pres_res.mobile}}</span></p>
+                </div>
+                {{!-- <div class="contain">
+                  <input type="submit" id="addintro" class="btn btn-success" value="save">
+                </div> --}}
+                
+              </td>
+            </tr>
+
+            <tr>
+              <td width="40%">
+                <div class="desease_details">
+                  <div class="symptoms">
+                    <h4 class="d-header">Symptoms</h4>
+                    <p>
+                      {{pres_res.symptoms}}
+                    </p>
+                  </div>
+
+                  <div class="advice">
+                    <h4 class="d-header">Advice</h4>
+                    <p>
+                      {{pres_res.advice}}
+                    </p>
+                  </div>
+                  <div class="tests">
+                    <h4 class="d-header">Tests</h4>
+                    <p>
+                      {{pres_res.tests}}
+                    </p>
+                  </div>
+                </div>
+              </td>
+              <td width="60%" valign="top">
+                <span style="font-size: 3em">R<sub>x</sub></span>
+
+                <hr />
+                <div class="medicine">
+                  {{!-- <label for="M_name">Medicine Name</label>
+                  <input type="text" class="todo-input1" placeholder="Medicine Name:" name="m_name" />
+                  <label for="M_take">Take for</label>
+                  <input id="age" class="todo-input2" type="text" placeholder="Take for" name="m_take"/>
+                  <label for="M_after">Schedule</label>
+                  <input id="age" class="todo-input3" type="text" placeholder="After ?" name="m_after"/>
+
+                  <button class="todo-button">
+                    <i class="fas fa-plus-square"></i>
+                  </button> --}}
+                  
+                  <div class="todo-container">
+                    {{#each pres_res.medicine}}
+                    <ul class="todo-list">
+                        <p style="font-weight: bold; font-size:large">{{this.m_name}}</p>
+                        <p style="margin-top: -8px;">Take for: {{this.m_take}}, {{this.m_after}}</p>
+                    </ul>
+                    {{/each}}
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="button_group">
+          {{!-- <input type="submit" id="issue" class="btn btn-success" value="Issue" name="issue"> --}}
+          {{!-- <button class="btn btn-success" id="submit" >Issue</button> --}}
+          <!-- <button class="pdf_prescription btn btn-danger">PDF</button> -->
+        </div>
+        <div id="snacking">Saving...</div>
+        <div id="snacked">Saved!</div>
+      </div>
+    </div>
+  </body>
+</html>

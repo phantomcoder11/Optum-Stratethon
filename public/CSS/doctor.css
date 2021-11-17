@@ -1,0 +1,75 @@
+.body{
+    /*  */
+}
+.intro{
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+ 
+
+}
+
+.intro .left{
+    flex: 50%;
+}
+.intro .right{
+    display: flex;
+    flex: 30%;
+    justify-content: center;
+ 
+}
+.intro .left .wish{
+
+    font-size: 2rem;
+    font-weight: 600;
+
+}
+.intro .left .doctoroptions{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+.intro .left .doctoroptions .newpatient{
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.newpatientlottie{
+    object-fit: contain;
+    height: 300px;
+
+}
+.intro .left .doctoroptions .addbutton{
+    cursor: pointer;
+    transform: scale(0.5);
+}
+.intro .left .doctoroptions .historyfiles{
+    object-fit: contain;
+    width: 40%;
+    height: 300px;
+}
+.prevpatient{
+    display: flex;
+    flex-direction: column;
+   
+    align-items: center;
+
+}
+.add , .historybutton{
+    padding: 2%;
+    background-color: #a3e3f8;
+    border: none;
+    border-radius: 7px;
+    height: auto;
+}
+.add:hover , .historybutton:hover{
+    background-color: #71cfee; 
+    transition: 0.5s;
+}
